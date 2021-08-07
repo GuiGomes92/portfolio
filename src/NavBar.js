@@ -1,7 +1,7 @@
 import React from "react"
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const styles = {
     navbar: {
@@ -10,9 +10,10 @@ const styles = {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "0 40px",
-        height: "60px",
-        backgroundColor: "#14213d",
-        color: "white",
+        height: "10vh",
+        backgroundColor: "transparent",
+        position: "relative",
+        color: "#3d405b",
         "& a": {
             textDecoration: "none",
             color: "inherit"
@@ -23,8 +24,13 @@ const styles = {
     },
     links: {
         display: "flex",
-        width: "15%",
+        fontSize: "1rem",
+        width: "30%",
         justifyContent: "space-between"
+    },
+    linkActive: {
+        borderBottom: "4px solid black",
+        paddingBottom: "4px"
     }
 }
 
@@ -38,9 +44,10 @@ function NavBar(props) {
                 </Typography>
             </Link>
             <div className={classes.links}>
-                <Link to="/work">Work</Link>
-                <Link to="/about">About</Link>
-                <Link to="/contact">Contact</Link>
+                <NavLink exact activeClassName={classes.linkActive} to="/work/design">Design</NavLink>
+                <NavLink exact activeClassName={classes.linkActive} to="/work/development">Development</NavLink>
+                <NavLink exact activeClassName={classes.linkActive} to="/about">About</NavLink>
+                <NavLink exact activeClassName={classes.linkActive} to="/contact">Contact</NavLink>
             </div>
         </div>
     )

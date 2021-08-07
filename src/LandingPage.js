@@ -3,18 +3,25 @@ import { withStyles } from '@material-ui/styles'
 import NavBar from './NavBar'
 import Tools from './Tools'
 import Footer from './Footer'
+import Testimonial from './Testimonial'
+import Areas from './Areas'
 
 const styles = {
+    root: {
+        height: "100%"
+    },
     videoContainer: {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "70vh",
-        backgroundColor: "#edf2f4",
+        height: "92vh",
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/imgs/code.jpg'})`,
+        backgroundSize: "cover",
         "& p": {
             fontSize: "40px",
-            margin: 0
+            margin: 0,
+            color: "white"
         }
     }
 }
@@ -22,12 +29,14 @@ const styles = {
 function LandingPage(props) {
     const { classes } = props;
     return (
-        <div>
+        <div className={classes.root}>
             <NavBar />
             <div className={classes.videoContainer}>
                 <p>Hello, I'm a Frontend developer based in Barcelona</p>
             </div>
+            <Areas />
             <Tools />
+            <Testimonial />
             <Footer />
         </div>
     )
