@@ -18,6 +18,11 @@ const testimonials = [
         name: "Francina Careta Corrons",
         title: "Senior Marketing Designer at Twigeo",
         text: "Gui is a great designer and an amazing person to work with. He brought into the team a lot of good energy, creativity and motivation. Our team was very small so everybody had a lot of weight on the outcome of the assets we produced, both for digital and printed supports, and Gui definitively stepped in and brought to the table great ideas and executions. He is also a cheerful and easy-going person and that makes working with him not just easy but also a lot of fun. I would highly recommend him as a graphic designer or an art director."
+    },
+    {
+        name: "Denise Köche",
+        title: "Planning I Stories Curator I Cultural Producer I Consultant at Propósito",
+        text: "Guilherme was a pleasant surprise for the team. He was very dedicated and demonstrated the character and qualities that you look for in a committed employee. He managed very well all the activities, bringing interesting and relevant insights for projects and working with colleagues as a real team. Guilherme certainly will make a difference in any company or institution he works for."
     }
 ]
 

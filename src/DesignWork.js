@@ -38,7 +38,7 @@ function getRows(area) {
 function getArea(area, classes) {
     if (area === 'design') {
         return design.map(item => (
-            <Link to={`/work/design/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name}/${item.cover})` }}>
+            <Link to={`/work/design/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name.split(' ').join('')}/${item.cover})` }}>
             </Link>
         ))
     }

@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
 import { Link, NavLink } from 'react-router-dom'
-import { useMediaQuery } from 'react-responsive';
 import MenuIcon from '@material-ui/icons/Menu';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const styles = {
     navbar: {
@@ -13,12 +13,16 @@ const styles = {
         alignItems: "center",
         padding: "0 40px",
         height: "10vh",
-        backgroundColor: "transparent",
+        backgroundColor: "#5E548E",
         position: "relative",
-        color: "#3d405b",
+        color: "white",
         "& a": {
+            color: "inherit",
+            textTransform: "uppercase",
             textDecoration: "none",
-            color: "inherit"
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
         },
         "& a:hover": {
             color: "black"
@@ -26,37 +30,49 @@ const styles = {
     },
     links: {
         display: "flex",
-        fontSize: "1rem",
-        width: "30%",
-        justifyContent: "space-between"
+        flexDirection: "column",
+        height: "100%",
+        fontSize: "5rem",
+        justifyContent: "space-evenly",
+        "& svg": {
+            fontSize: "inherit"
+        }
     },
     linkActive: {
-        borderBottom: "4px solid black",
+        borderBottom: "15px solid black",
         paddingBottom: "4px"
+    },
+    overlay: {
+        height: "100vh",
+        transition: "0.3s ease-in-out",
+        flexDirection: "column",
     }
 }
 
 function NavBar(props) {
-    const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
     const [open, setOpen] = useState(false)
     const { classes } = props;
 
     return (
-        <div className={classes.navbar}>
-            <Link to="/">
-                <Typography variant="h6">
-                    Guilherme Gomes
-                </Typography>
-            </Link>
-            {isMobile ? <MenuIcon onClick={() => setOpen(!open)} /> :
-                <div className={classes.links}>
-                    <NavLink exact activeClassName={classes.linkActive} to="/work/design">Design</NavLink>
-                    <NavLink exact activeClassName={classes.linkActive} to="/work/development">Development</NavLink>
-                    <NavLink exact activeClassName={classes.linkActive} to="/about">About</NavLink>
-                    <NavLink exact activeClassName={classes.linkActive} to="/contact">Contact</NavLink>
-                </div>
+        <div className={open ? `${classes.navbar} ${classes.overlay}` : classes.navbar}>
+            {!open &&
+                <Link to="/">
+                    <Typography variant="h6">
+                        Guilherme Gomes
+                    </Typography>
+                </Link>
             }
-        </div>
+            {open ?
+                <div className={classes.links}>
+                    <NavLink exact activeClassName={classes.linkActive} to="/work/design" onClick={() => setOpen(!open)}>Design <ChevronRightIcon /> </NavLink>
+                    <NavLink exact activeClassName={classes.linkActive} to="/work/development" onClick={() => setOpen(!open)}>Development <ChevronRightIcon /></NavLink>
+                    <NavLink exact activeClassName={classes.linkActive} to="/about" onClick={() => setOpen(!open)}>About <ChevronRightIcon /></NavLink>
+                    <NavLink exact activeClassName={classes.linkActive} to="/contact" onClick={() => setOpen(!open)}>Contact <ChevronRightIcon /></NavLink>
+                </div>
+                :
+                <MenuIcon onClick={() => setOpen(!open)} />
+            }
+        </div >
     )
 }
 

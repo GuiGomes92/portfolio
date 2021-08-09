@@ -1,8 +1,9 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
+import logos from './utils/logoClients'
 
-const items = ["Clients go here"]
+const url = process.env.PUBLIC_URL
 
 const styles = {
     root: {
@@ -24,23 +25,20 @@ const styles = {
     tool: {
         width: "200px",
         height: "200px",
-        border: "1px solid black",
+        backgroundSize: "cover",
         borderRadius: "5%",
     }
 }
 
 function Tools(props) {
     const { classes } = props;
+    logos.map(logo => console.log(logo))
     return (
         <div className={classes.root}>
             <Typography variant="h4">Trusted by:</Typography>
             <div className={classes.tools}>
-                {items.map(item =>
-                    <div className={classes.tool}>
-                        <Typography variant="h6">
-                            {item}
-                        </Typography>
-                    </div>
+                {logos.map(logo =>
+                    <div className={classes.tool} style={{ backgroundImage: `url(${url + logo})` }}></div>
                 )}
             </div>
         </div>

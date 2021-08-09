@@ -8,6 +8,7 @@ import Areas from './Areas'
 
 const styles = {
     root: {
+        fontFamily: 'Roboto',
         height: "100%"
     },
     videoContainer: {

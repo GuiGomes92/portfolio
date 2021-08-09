@@ -41,6 +41,16 @@ const styles = {
     },
     certification: {
         width: "50%",
+        "& ul": {
+            listStyleType: "none",
+            "& h2": {
+                textTransform: "uppercase"
+            },
+            "& li": {
+                fontSize: "1rem",
+                lineHeight: "1.6"
+            }
+        }
 
     }
 }
