@@ -8,10 +8,17 @@ import Footer from './Footer'
 
 const styles = makeStyles((theme) => ({
     root: {
-        display: "flex"
+        width: "100%",
+        height: "100%",
+        margin: "auto"
     },
     form: {
+        border: "1px solid black",
         display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "80%",
+        height: "70%",
         flexDirection: "column",
         '& > *': {
             margin: theme.spacing(1),
@@ -25,17 +32,15 @@ function Contact(props) {
     const classes = styles();
 
     return (
-        <div>
+        <div className={classes.root}>
             <NavBar />
-            <div className={classes.root}>
-                <form className={classes.form} noValidate autoComplete="off">
-                    <div>
-                        <Input placeholder="Name" inputProps={{ 'aria-label': 'description' }} />
-                        <Input placeholder="Email" inputProps={{ 'aria-label': 'description' }} />
-                    </div>
-                    <TextField id="filled-basic" label="Filled" variant="filled" />
-                </form>
-            </div>
+            <form className={classes.form} noValidate autoComplete="off">
+                <div>
+                    <Input placeholder="Name" inputProps={{ 'aria-label': 'description' }} />
+                    <Input placeholder="Email" inputProps={{ 'aria-label': 'description' }} />
+                </div>
+                <TextField id="filled-basic" label="Filled" variant="filled" />
+            </form>
             <Footer />
         </div>
     );

@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
 import { Link, NavLink } from 'react-router-dom'
+import { useMediaQuery } from 'react-responsive';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = {
     navbar: {
@@ -35,7 +37,10 @@ const styles = {
 }
 
 function NavBar(props) {
+    const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+    const [open, setOpen] = useState(false)
     const { classes } = props;
+
     return (
         <div className={classes.navbar}>
             <Link to="/">
@@ -43,12 +48,14 @@ function NavBar(props) {
                     Guilherme Gomes
                 </Typography>
             </Link>
-            <div className={classes.links}>
-                <NavLink exact activeClassName={classes.linkActive} to="/work/design">Design</NavLink>
-                <NavLink exact activeClassName={classes.linkActive} to="/work/development">Development</NavLink>
-                <NavLink exact activeClassName={classes.linkActive} to="/about">About</NavLink>
-                <NavLink exact activeClassName={classes.linkActive} to="/contact">Contact</NavLink>
-            </div>
+            {isMobile ? <MenuIcon onClick={() => setOpen(!open)} /> :
+                <div className={classes.links}>
+                    <NavLink exact activeClassName={classes.linkActive} to="/work/design">Design</NavLink>
+                    <NavLink exact activeClassName={classes.linkActive} to="/work/development">Development</NavLink>
+                    <NavLink exact activeClassName={classes.linkActive} to="/about">About</NavLink>
+                    <NavLink exact activeClassName={classes.linkActive} to="/contact">Contact</NavLink>
+                </div>
+            }
         </div>
     )
 }

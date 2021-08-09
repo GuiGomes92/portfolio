@@ -4,7 +4,6 @@ import About from './About'
 import Contact from './Contact'
 import NotFound from './NotFound'
 import DesignWork from './DesignWork'
-import DevWork from './DevWork'
 import Job from './Job'
 
 import {

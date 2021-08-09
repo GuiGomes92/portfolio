@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
     appBar: {
-        top: 'auto',
+        top: "auto",
         bottom: "-200",
     }
 };
@@ -16,7 +16,7 @@ function Footer(props) {
     const { classes } = props;
     return (
         <div>
-            <AppBar position="relative" color="#ffffff" className={classes.appBar}>
+            <AppBar position="absolute" color="#ffffff" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="body1">
                         Guilherme Gomes. 2021

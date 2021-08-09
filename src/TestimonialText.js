@@ -1,4 +1,4 @@
-export default [
+const testimonials = [
     {
         name: "Kaleena Stroud",
         title: "Freelance Copywriter",
@@ -20,3 +20,5 @@ export default [
         text: "Gui is a great designer and an amazing person to work with. He brought into the team a lot of good energy, creativity and motivation. Our team was very small so everybody had a lot of weight on the outcome of the assets we produced, both for digital and printed supports, and Gui definitively stepped in and brought to the table great ideas and executions. He is also a cheerful and easy-going person and that makes working with him not just easy but also a lot of fun. I would highly recommend him as a graphic designer or an art director."
     }
 ]
+
+export default testimonials;

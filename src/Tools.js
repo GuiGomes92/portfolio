@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
 
-const items = ["HTML", "CSS", "Javascript", "Python", "React", "NPM"]
+const items = ["Clients go here"]
 
 const styles = {
     root: {
@@ -33,7 +33,7 @@ function Tools(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-            <Typography variant="h4">What help me built awesome things:</Typography>
+            <Typography variant="h4">Trusted by:</Typography>
             <div className={classes.tools}>
                 {items.map(item =>
                     <div className={classes.tool}>

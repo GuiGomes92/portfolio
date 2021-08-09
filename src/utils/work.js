@@ -6,20 +6,20 @@ export const design = [
         text: ''
     },
     {
-        name: "Be Proud",
+        name: "BeProud",
         cover: "BeProud.png",
         imgs: [],
         text: ''
     },
     {
-        name: "Yellow May",
-        cover: "",
+        name: "YellowMay",
+        cover: "cover.png",
         imgs: [],
         text: ''
     },
     {
-        name: "Self Branding",
-        cover: "",
+        name: "SelfBranding",
+        cover: "cover.png",
         imgs: [],
         text: ''
     }
@@ -28,13 +28,13 @@ export const design = [
 export const development = [
     {
         name: "Yoga Gravity Timer",
-        cover: "",
+        cover: "cover.jpg",
         imgs: [],
         text: ''
     },
     {
         name: "React Todo List",
-        cover: "",
+        cover: "cover.gif",
         imgs: [],
         text: ''
     },

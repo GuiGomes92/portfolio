@@ -3,18 +3,19 @@ import { withStyles } from '@material-ui/styles'
 
 const styles = {
     root: {
+        height: "100vh",
         display: "flex",
         justifyContent: "space-evenly",
+        alignItems: "center",
         backgroundColor: "#e5e5e5"
     },
     area: {
-        width: "400px",
+        width: "20%",
         display: "flex",
-        padding: "10%",
-        margin: "10%",
+        padding: "5%",
         flexDirection: "column",
         justifyContent: "center",
-        height: "200px",
+        height: "50%",
         backgroundColor: "#fca311",
         borderRadius: "10px",
         color: "white",
@@ -32,8 +33,12 @@ function Areas(props) {
     return (
         <div className={classes.root}>
             <div className={classes.area} >
-                <h4>Design</h4>
+                <h4>Graphic Design</h4>
                 <h2>Make it beautiful</h2>
+            </div>
+            <div className={classes.area} >
+                <h4>UI/UX</h4>
+                <h2>Make it easy to use</h2>
             </div>
             <div className={classes.area}>
                 <h4>Development</h4>

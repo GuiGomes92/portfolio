@@ -15,35 +15,35 @@ const styles = {
     },
     square: {
         backgroundColor: "grey",
-        backgroundSize: "cover"
+        backgroundSize: "cover",
+        backgroundPosition: "center"
     }
 }
 
 function getRows(area) {
     let string = ''
     if (area === 'design') {
-        for (let i = 0; i < design.length / 2; i++) {
-
+        for (let i = 0; i <= design.length / 2; i++) {
+            string = string + " 45vh"
+        }
+        return string
+    } else {
+        for (let i = 0; i < development.length / 2; i++) {
             string = string + " 45vh"
         }
         return string
     }
-    for (let i = 0; i < development.length / 2; i++) {
-        string = string + " 45vh"
-    }
-    return string
 }
 
 function getArea(area, classes) {
     if (area === 'design') {
         return design.map(item => (
-            <Link to={`/work/design/${item.name}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name}/${item.cover})` }}>
-                <div>{item.name}</div>
+            <Link to={`/work/design/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name}/${item.cover})` }}>
             </Link>
         ))
     }
     return development.map(item => (
-        <Link to={`/work/development/${item.name}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name}/${item.cover})` }}>
+        <Link to={`/work/development/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name.split(' ').join('')}/${item.cover})` }}>
             <div>{item.name}</div>
         </Link >
     ))

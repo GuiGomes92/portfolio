@@ -6,7 +6,6 @@ import Footer from './Footer'
 const styles = {}
 
 function NotFound(props) {
-    const { classes } = props;
     return (
         <div>
             <NavBar />
