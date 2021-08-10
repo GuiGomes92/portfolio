@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { withStyles } from '@material-ui/styles'
 import NavBar from './NavBar'
 import Footer from './Footer'
@@ -17,6 +17,10 @@ const styles = {
         backgroundColor: "grey",
         backgroundSize: "cover",
         backgroundPosition: "center"
+    },
+    overlay: {
+        height: "100%",
+        backgroundColor: "white"
     }
 }
 
@@ -35,10 +39,15 @@ function getRows(area) {
     }
 }
 
-function getArea(area, classes) {
+function getArea(area, classes, isHovering, setHover) {
     if (area === 'design') {
         return design.map(item => (
-            <Link to={`/work/design/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name.split(' ').join('')}/${item.cover})` }}>
+
+            <Link onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+                key={item.name.split(' ').join('')}
+                to={`/work/design/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name.split(' ').join('')}/${item.cover})` }}>
+                {isHovering && <div className={classes.overlay}>{item.name}</div>}
             </Link>
         ))
     }
@@ -51,6 +60,7 @@ function getArea(area, classes) {
 }
 
 function DesignWork(props) {
+    const [isHovering, setHover] = useState(false)
     getRows(useParams().area);
     const { classes } = props
 
@@ -58,7 +68,7 @@ function DesignWork(props) {
         <div>
             <NavBar />
             <div className={classes.root}>
-                {getArea(useParams().area, classes)}
+                {getArea(useParams().area, classes, isHovering, setHover)}
             </div>
             <Footer />
         </div>

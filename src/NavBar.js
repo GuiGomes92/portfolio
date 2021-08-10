@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
 import { Link, NavLink } from 'react-router-dom'
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import CloseIcon from '@material-ui/icons/Close';
 
 const styles = {
     navbar: {
@@ -14,7 +14,6 @@ const styles = {
         padding: "0 40px",
         height: "10vh",
         backgroundColor: "#5E548E",
-        position: "relative",
         color: "white",
         "& a": {
             color: "inherit",
@@ -46,6 +45,19 @@ const styles = {
         height: "100vh",
         transition: "0.3s ease-in-out",
         flexDirection: "column",
+    },
+    logo: {
+        width: '413px',
+        height: '129px',
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/imgs/Asset1.png'})`,
+        backgroundSize: "40%",
+        backgroundPosition: "left center",
+        backgroundRepeat: 'no-repeat'
+    },
+    closeIcon: {
+        alignSelf: "flex-end",
+        position: "absolute",
+        marginTop: "30px"
     }
 }
 
@@ -57,21 +69,19 @@ function NavBar(props) {
         <div className={open ? `${classes.navbar} ${classes.overlay}` : classes.navbar}>
             {!open &&
                 <Link to="/">
-                    <Typography variant="h6">
-                        Guilherme Gomes
-                    </Typography>
+                    <div className={classes.logo}></div>
                 </Link>
             }
-            {open ?
+            {
+                open &&
                 <div className={classes.links}>
                     <NavLink exact activeClassName={classes.linkActive} to="/work/design" onClick={() => setOpen(!open)}>Design <ChevronRightIcon /> </NavLink>
                     <NavLink exact activeClassName={classes.linkActive} to="/work/development" onClick={() => setOpen(!open)}>Development <ChevronRightIcon /></NavLink>
                     <NavLink exact activeClassName={classes.linkActive} to="/about" onClick={() => setOpen(!open)}>About <ChevronRightIcon /></NavLink>
                     <NavLink exact activeClassName={classes.linkActive} to="/contact" onClick={() => setOpen(!open)}>Contact <ChevronRightIcon /></NavLink>
                 </div>
-                :
-                <MenuIcon onClick={() => setOpen(!open)} />
             }
+            {open ? <CloseIcon className={classes.closeIcon} onClick={() => setOpen(!open)} /> : <MenuIcon onClick={() => setOpen(!open)} />}
         </div >
     )
 }
