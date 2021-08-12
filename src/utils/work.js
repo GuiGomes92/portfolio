@@ -3,7 +3,8 @@ export const design = [
         name: "Anexo",
         cover: "Anexo.png",
         imgs: ['Anexo_1.png', 'Anexo_3.png', 'Anexo_5.png', 'Anexo_7.png'],
-        text: '“Anexo” is a gourmet area designed to be the addendum of another restaurant. The brand was inspired by the plan of the place.'
+        text: '“Anexo” is a gourmet area designed to be the addendum of another restaurant. The brand was inspired by the plan of the place.',
+        tools: ["Photoshop", "Illustrator"]
     },
     {
         name: "Be Proud",

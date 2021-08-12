@@ -1,54 +1,101 @@
 import React from "react"
 import { withStyles } from "@material-ui/styles";
 import testimonials from './TestimonialText'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+const url = process.env.PUBLIC_URL
 
 const styles = {
-    root: {
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center"
-    },
-    testimonial: {
-        display: "flex",
-        flexDirection: "column",
-        padding: "2em",
-        width: "300px",
-        marginBottom: "20px",
-        borderRadius: "10px",
-        margin: "20px",
-        backgroundColor: "#f8f9fa",
-        textAlign: "justify",
-        fontSize: "14px"
-    },
-    signature: {
-        display: "flex",
-        flexDirection: "column",
-        justifySelf: "flex-end",
-        "& p": {
-            fontSize: "1rem",
-            margin: 0,
+
+    myCarousel: {
+        background: "#fafafa",
+        marginTop: "-6%",
+        width: "54%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        paddingTop: "6%",
+        paddingBottom: "8%",
+        paddingLeft: "5%",
+        paddingRight: "5%",
+        border: "1px solid #ddd",
+        height: "286px",
+        "& h3": {
+            color: "#222",
+            fontWeight: "100",
+            letterSpacing: "0.2px",
+            marginBottom: "4px",
+            fontWeight: "600",
+            textTransform: "uppercase",
+            fontSize: "17px"
         },
-        "& h6": {
-            fontSize: "1.5rem",
-            margin: "0 0 10px 0"
+        "& h4": {
+            textTransform: "uppercase",
+            marginTop: 0,
+            paddingTop: 0,
+            fontWeight: 500,
+            color: "#787878",
+            fontSize: "14px",
+        },
+        "& p": {
+            fontWeight: "100 !important",
+            lineHeight: "29px !important",
+            color: "#222",
+            fontSize: "15px",
+            fontFamily: "sans-serif",
+            maxHeight: "67px",
+        },
+        "& p:before": {
+            content: "“",
+            color: "#aaa",
+            fontSize: "26px",
+            fontFamily: "monospace",
+            fontWeight: "100",
+        },
+
+        "& p:after": {
+            content: "”",
+            color: "#aaa",
+            fontSize: "26px",
+            fontFamily: "monospace",
+            fontWeight: 100,
+            lineHeight: 0
+        }
+    },
+    carousel: {
+        "& img": {
+            width: "139px !important",
+            borderRadius: "50%"
         }
     }
+
 }
+
 
 function Testimonial(props) {
     const { classes } = props
     return (
-        <div className={classes.root}>
+        <Carousel
+            className={classes.carousel}
+            showArrows={true}
+            infiniteLoop={true}
+            showThumbs={false}
+            showStatus={false}
+            autoPlay={true}
+            interval={5100}
+        >
             {testimonials.map(t => (
-                <div className={classes.testimonial}>
-                    <div className={classes.signature}>
-                        <h6>{t.name}</h6>
-                        <p>{t.title}</p>
+                <div>
+                    <img src={url + "/imgs/testimonial/" + t.picture} />
+                    <div className={classes.myCarousel}>
+                        <h3>{t.name}</h3>
+                        <h4>{t.title}</h4>
+                        <p>
+                            {t.text}
+                        </p>
                     </div>
-                    <p>{t.text}</p>
                 </div>
             ))}
-        </div>
+        </Carousel>
     )
 }
 

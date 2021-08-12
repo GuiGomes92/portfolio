@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import NavBar from './NavBar';
 import Footer from './Footer';
 import { withStyles } from '@material-ui/styles';
 import { design, development } from './utils/work'
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 
 const url = process.env.PUBLIC_URL
 
 const styles = {
     imgs: {
         display: "flex",
-        flexWrap: "wrap"
+        flexDirection: "column",
+        alignItems: "flex-end",
     },
     boxes: {
         width: "50%",
@@ -21,14 +22,36 @@ const styles = {
     title: {
         display: "flex",
     },
+    textContainer: {
+        position: "fixed",
+        display: "flex",
+        alignItems: "center",
+        height: "100%",
+        width: "50%",
+        backgroundColor: "white"
+    },
     text: {
-        width: "50vw"
+        height: "50%",
+        padding: "0 10%",
+        "& h1": {
+            color: "#fcc60e",
+            margin: "0 0 20px 0",
+            textTransform: "uppercase"
+        },
+        "& p": {
+            margin: 0,
+            lineHeight: "2em",
+            textAlign: "justify",
+            paddingBottom: "20px",
+            borderBottom: "5px solid #1e4384"
+        }
     }
 }
 
 function Job(props) {
     const area = useParams().area
     const job = useParams().job
+
     const { classes } = props;
     let data = {}
 
@@ -46,17 +69,33 @@ function Job(props) {
             }
         }
     }
+
+    useEffect(() => {
+        // Update the document title using the browser API
+        document.title = `${data.name}`;
+    });
+
     return (
         <div>
             <NavBar />
             <div className={classes.title}>
-                <div className={classes.text}>
-                    <h1>{data.name}</h1>
-                    <p>{data.text}</p>
+                <div className={classes.textContainer}>
+                    <div className={classes.text}>
+                        <h1>{data.name}</h1>
+                        <p>{data.text}</p>
+                        {'tools' in data &&
+                            <div>
+                                <h3>Tools:</h3>
+                                <ul>
+                                    {data.tools.map(tool => (<li>{tool}</li>))}
+                                </ul>
+                            </div>
+                        }
+                    </div>
                 </div>
-                <div className={classes.boxes} style={{ backgroundImage: `url(${url}/imgs/${data.name.split(' ').join('')}/${data.cover})` }}></div>
             </div>
             <div className={classes.imgs}>
+                <div className={classes.boxes} style={{ backgroundImage: `url(${url}/imgs/${data.name.split(' ').join('')}/${data.cover})` }}></div>
                 {data.imgs.map(pic => (
                     <div className={classes.boxes} style={{ backgroundImage: `url(${url}/imgs/${data.name.split(' ').join('')}/${pic})` }}></div>
                 )
