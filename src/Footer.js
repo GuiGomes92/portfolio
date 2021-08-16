@@ -11,38 +11,25 @@ const url = process.env.PUBLIC_URL
 
 const styles = {
     appBar: {
-        height: "25%",
+        height: "15%",
         top: "auto",
-        bottom: "-200",
         display: "flex",
+        marginTop: "auto",
         justifyContent: "center",
         backgroundColor: "#1e4384"
     },
     toolbar: {
         display: "flex",
-        padding: "0 40px",
-        height: "100%",
-        justifyContent: "space-between",
-        "& img": {
-            width: "10%"
-        }
-    },
-    social: {
-        "& svg": {
-            fontSize: "1.5em"
-        }
-    },
-    links: {
-        height: "50%",
-        display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        padding: "0 10%",
+        height: "100%",
+        justifyContent: "space-evenly",
         "& a": {
-            color: "white",
-            textTransform: "uppercase",
-            textDecoration: "none",
-            fontWeight: "bold"
+            color: "white"
         }
+    },
+    github: {
+        marginRight: "15px"
     }
 };
 
@@ -52,23 +39,11 @@ function Footer(props) {
     return (
         <AppBar position="absolute" className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
-                <img src={url + "/LogoWhite.png"}></img>
-                <div className={classes.links}>
-                    <Link to='/'>Home</Link>
-                    <Link to='/design'>Design Work</Link>
-                    <Link to='/development'>Development Work</Link>
-                    <Link to='/contact'>Get in contact</Link>
+                <div>
+                    <a href="https://github.com/GuiGomes92" target="_blank"><GitHubIcon className={classes.github} /></a>
+                    <a href="https://www.linkedin.com/in/gomesgui/" target="_blank"><LinkedInIcon /></a>
                 </div>
-                <div className={classes.social}>
-                    <GitHubIcon />
-                    <LinkedInIcon />
-                    <Typography variant="body1">
-                        gui@guibgomes.com
-                    </Typography>
-                    <Typography variant="body1">
-                        Guilherme Gomes. 2021
-                    </Typography>
-                </div>
+                <Typography variant="body1">Copyright ©2021 All rights reserved | Coded and Designed by Guilherme Gomes</Typography>
             </Toolbar>
         </AppBar>
     )

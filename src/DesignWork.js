@@ -11,7 +11,10 @@ const styles = {
     root: {
         display: "grid",
         gridTemplateColumns: "50% 50%",
-        gridTemplateRows: `${getRows()}`
+        gridTemplateRows: `${getRows()}`,
+        "& a": {
+            textDecoration: 'none'
+        }
     },
     square: {
         backgroundColor: "grey",
@@ -19,8 +22,23 @@ const styles = {
         backgroundPosition: "center"
     },
     overlay: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         height: "100%",
-        backgroundColor: "white"
+        width: "100%",
+        opacity: 0,
+        backgroundColor: "#1e4384",
+        "&:hover": {
+            transition: "opacity 0.2s",
+            opacity: 1
+        },
+        "& h1": {
+            border: "1px solid #fcc60e",
+            padding: "20px 40px",
+            color: "#fcc60e",
+            margin: 0
+        }
     }
 }
 
@@ -41,19 +59,19 @@ function getRows(area) {
 
 function getArea(area, classes, isHovering, setHover) {
     if (area === 'design') {
-        return design.map(item => (
 
-            <Link onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
+        return design.map(item => (
+            <Link
                 key={item.name.split(' ').join('')}
-                to={`/work/design/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name.split(' ').join('')}/${item.cover})` }}>
-                {isHovering && <div className={classes.overlay}>{item.name}</div>}
-            </Link>
+                to={`/work/design/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name.split(' ').join('')}/${item.cover})` }
+                }>
+                <div className={classes.overlay}><h1>{item.name}</h1></div>
+            </Link >
         ))
     }
     return development.map(item => (
         <Link to={`/work/development/${item.name.split(' ').join('')}`} className={classes.square} style={{ backgroundImage: `url(${url + '/imgs/'}${item.name.split(' ').join('')}/${item.cover})` }}>
-            <div>{item.name}</div>
+            <div className={classes.overlay}><h1>{item.name}</h1></div>
         </Link >
     ))
 

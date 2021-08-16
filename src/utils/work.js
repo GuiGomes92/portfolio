@@ -9,20 +9,14 @@ export const design = [
     {
         name: "Be Proud",
         cover: "BeProud.png",
-        imgs: [],
+        imgs: ['mockup1.png', 'mockup2.jpg', 'mockup3.jpg', 'mockup4.jpg', 'mockup6.png'],
         text: 'In the 21st century, being gay still is a crime in 72 countries. In some, punished with death. Ironically, in the year of 2018, the world cup of football took place not only in the same month as LGBT pride, but it also took place in one of the most homophobic nations in the world: Russia. Based in this context, we took the opportunity to raise awareness through a manifesto. We designed urban posters using empowerment sentences and russian constructivist design, with images that resembled football in order to make contrast between both realities.'
     },
     {
         name: "Yellow May",
         cover: "cover.png",
-        imgs: [],
+        imgs: ['1.png', '2.png', '4.png', '5.png'],
         text: 'Brazil is the 5th country with most deaths in traffic. Each year, nearly 50 thousand people are killed and at least 400 gets harm. In 2018, the challenge is changing behaviour and create awareness about respect in traff ic. Targeting not only drivers, but bikers, motorcicles and pedestrian of all ages. From this perspective we reached the following insight: We all have crucial part in traff ic and lifes are crossed everyday in Brazil. However, because recklessness, some don’t return home.'
-    },
-    {
-        name: "Self Branding",
-        cover: "cover.png",
-        imgs: [],
-        text: ''
     }
 ]
 

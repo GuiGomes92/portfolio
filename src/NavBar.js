@@ -11,9 +11,9 @@ const styles = {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "0 40px",
+        padding: "0 80px",
         height: "10vh",
-        backgroundColor: "white",
+        backgroundColor: "transparent",
         color: "black",
         "& a": {
             color: "#1e4384",
@@ -48,12 +48,7 @@ const styles = {
         flexDirection: "column",
     },
     logo: {
-        width: "6vw",
-        height: "10vh",
-        backgroundImage: `url(${process.env.PUBLIC_URL + '/imgs/Asset1.png'})`,
-        backgroundSize: "80%",
-        backgroundPosition: "left center",
-        backgroundRepeat: 'no-repeat'
+        width: "50px"
     },
     closeIcon: {
         alignSelf: "flex-end",
@@ -70,7 +65,7 @@ function NavBar(props) {
         <div className={open ? `${classes.navbar} ${classes.overlay}` : classes.navbar}>
             {!open &&
                 <Link to="/">
-                    <div className={classes.logo}></div>
+                    <img className={classes.logo} src={`${process.env.PUBLIC_URL + '/imgs/Asset1.png'}`} />
                 </Link>
             }
             {

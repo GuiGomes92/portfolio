@@ -10,8 +10,7 @@ const url = process.env.PUBLIC_URL
 const styles = {
     imgs: {
         display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-end",
+        flexWrap: "wrap"
     },
     boxes: {
         width: "50%",
@@ -23,16 +22,15 @@ const styles = {
         display: "flex",
     },
     textContainer: {
-        position: "fixed",
         display: "flex",
         alignItems: "center",
         height: "100%",
-        width: "50%",
+        width: "100%",
         backgroundColor: "white"
     },
     text: {
-        height: "50%",
-        padding: "0 10%",
+        padding: "0 80px",
+        width: "50%",
         "& h1": {
             color: "#fcc60e",
             margin: "0 0 20px 0",
@@ -78,24 +76,22 @@ function Job(props) {
     return (
         <div>
             <NavBar />
-            <div className={classes.title}>
-                <div className={classes.textContainer}>
-                    <div className={classes.text}>
-                        <h1>{data.name}</h1>
-                        <p>{data.text}</p>
-                        {'tools' in data &&
-                            <div>
-                                <h3>Tools:</h3>
-                                <ul>
-                                    {data.tools.map(tool => (<li>{tool}</li>))}
-                                </ul>
-                            </div>
-                        }
-                    </div>
+            <div className={classes.textContainer}>
+                <div className={classes.text}>
+                    <h1>{data.name}</h1>
+                    <p>{data.text}</p>
+                    {'tools' in data &&
+                        <div>
+                            <h3>Tools:</h3>
+                            <ul>
+                                {data.tools.map(tool => (<li>{tool}</li>))}
+                            </ul>
+                        </div>
+                    }
                 </div>
+                <div className={classes.boxes} style={{ backgroundImage: `url(${url}/imgs/${data.name.split(' ').join('')}/${data.cover})` }}></div>
             </div>
             <div className={classes.imgs}>
-                <div className={classes.boxes} style={{ backgroundImage: `url(${url}/imgs/${data.name.split(' ').join('')}/${data.cover})` }}></div>
                 {data.imgs.map(pic => (
                     <div className={classes.boxes} style={{ backgroundImage: `url(${url}/imgs/${data.name.split(' ').join('')}/${pic})` }}></div>
                 )

@@ -15,21 +15,25 @@ const styles = makeStyles((theme) => ({
     },
     formContainer: {
         borderRadius: "1%",
-        backgroundColor: "#edf2f4",
+        backgroundColor: "#f6f6f6",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         width: "50%",
-        height: "70%",
+        height: "80%",
         margin: "5% auto",
         flexDirection: "column"
     },
     form: {
         width: "80%",
-        height: "80%",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between"
+        justifyContent: "space-evenly",
+        "& h1": {
+            textTransform: "uppercase",
+            color: "#1e4384"
+        }
     },
     inputContainer: {
         display: "flex",
@@ -47,22 +51,34 @@ function Contact(props) {
             <NavBar />
             <div className={classes.formContainer}>
                 <form className={classes.form} noValidate autoComplete="off">
-                    <h1>Let's work together</h1>
-                    <div className={classes.inputContainer}>
-                        <Input placeholder="Name" inputProps={{ 'aria-label': 'description' }} fullWidth />
-                        <Input placeholder="Email" inputProps={{ 'aria-label': 'description' }} fullWidth />
+                    <div>
+                        <h1>Let's work together /></h1>
+                        <p>Fill the form below or write to gui@guibgomes.com</p>
                     </div>
-                    <Input placeholder="Company" inputProps={{ 'aria-label': 'description' }} fullWidth />
+                    <TextField
+                        required
+                        id="outlined-required"
+                        label="Name"
+                        variant="outlined"
+                        fullWidth
+                    />
+                    <TextField
+                        required
+                        email
+                        id="outlined-required"
+                        label="Email"
+                        variant="outlined"
+                        fullWidth
+                    />
                     <TextField
                         id="outlined-multiline-static"
                         label="Leave a Message"
                         multiline
                         rows={6}
-                        defaultValue="Default Value"
                         variant="outlined"
                         fullWidth
                     />
-                    <Button variant="outlined">Send</Button>
+                    <Button type="submit" variant="outlined">Send</Button>
                 </form>
             </div>
             <Footer />

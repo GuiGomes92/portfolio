@@ -5,6 +5,9 @@ import Tools from './Tools'
 import Footer from './Footer'
 import Testimonial from './Testimonial'
 import Areas from './Areas'
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom'
+import ScrollArrow from './ScrollArrow'
 
 const styles = {
     root: {
@@ -15,15 +18,29 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        paddingLeft: "80px",
         alignItems: "center",
         height: "92vh",
         backgroundImage: `url(${process.env.PUBLIC_URL + '/imgs/code.jpg'})`,
         backgroundSize: "cover",
+        "& h2": {
+            textAlign: "center",
+            fontSize: "60px",
+            fontWeight: "100",
+            margin: "0 0 20px 0",
+            color: "white"
+        },
         "& p": {
-            fontSize: "40px",
+            fontSize: "30px",
             margin: 0,
             color: "white"
+        },
+        "& a": {
+            textDecoration: "none"
         }
+    },
+    trustedBy: {
+        padding: "5% 0"
     }
 }
 
@@ -33,11 +50,19 @@ function LandingPage(props) {
         <div className={classes.root}>
             <NavBar />
             <div className={classes.videoContainer}>
-                <p>Hello, I'm a Frontend developer based in Barcelona</p>
+                <h2>I turn ideas into reality <br />through code and design</h2>
+                <Link to='/contact'>
+                    <Button variant="contained" color="primary">
+                        Contact Now
+                    </Button>
+                </Link>
             </div>
             <Areas />
-            <Tools />
-            <Testimonial />
+            <div className={classes.trustedBy}>
+                <Tools />
+                <Testimonial />
+            </div>
+            <ScrollArrow />
             <Footer />
         </div>
     )
