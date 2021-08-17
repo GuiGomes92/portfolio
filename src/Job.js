@@ -3,7 +3,9 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import { withStyles } from '@material-ui/styles';
 import { design, development } from './utils/work'
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import ScrollArrow from './ScrollArrow'
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const url = process.env.PUBLIC_URL
 
@@ -32,7 +34,7 @@ const styles = {
         padding: "0 80px",
         width: "50%",
         "& h1": {
-            color: "#fcc60e",
+            color: "#1e4384",
             margin: "0 0 20px 0",
             textTransform: "uppercase"
         },
@@ -41,8 +43,14 @@ const styles = {
             lineHeight: "2em",
             textAlign: "justify",
             paddingBottom: "20px",
-            borderBottom: "5px solid #1e4384"
         }
+    },
+    type: {
+        textTransform: "uppercase",
+        color: "#fcc60e",
+    },
+    list: {
+        textDecoration: "none"
     }
 }
 
@@ -78,15 +86,13 @@ function Job(props) {
             <NavBar />
             <div className={classes.textContainer}>
                 <div className={classes.text}>
+                    {'type' in data &&
+                        <h4 className={classes.type}>{data.type}</h4>
+                    }
                     <h1>{data.name}</h1>
                     <p>{data.text}</p>
-                    {'tools' in data &&
-                        <div>
-                            <h3>Tools:</h3>
-                            <ul>
-                                {data.tools.map(tool => (<li>{tool}</li>))}
-                            </ul>
-                        </div>
+                    {'sourceCode' in data &&
+                        <a href={data.sourceCode}>< GitHubIcon /></a>
                     }
                 </div>
                 <div className={classes.boxes} style={{ backgroundImage: `url(${url}/imgs/${data.name.split(' ').join('')}/${data.cover})` }}></div>
@@ -97,6 +103,7 @@ function Job(props) {
                 )
                 )}
             </div>
+            <ScrollArrow />
             <Footer />
         </div>
     )

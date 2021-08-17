@@ -5,7 +5,9 @@ import NavBar from './NavBar'
 import LanguageIcon from '@material-ui/icons/Language';
 import SchoolIcon from '@material-ui/icons/School';
 import Footer from './Footer'
+import CodeIcon from '@material-ui/icons/Code';
 import { Link } from 'react-router-dom'
+import ScrollArrow from "./ScrollArrow";
 
 const styles = {
     main: {
@@ -39,7 +41,6 @@ const styles = {
         },
         "& p": {
             fontSize: "1.5rem",
-            borderBottom: "2px solid #fcc60e",
             paddingBottom: "5%"
         }
     },
@@ -72,6 +73,8 @@ const styles = {
     },
     certification: {
         display: "flex",
+        flexDirection: "column",
+        width: "50%",
         textAlign: "center",
         "& ul": {
             listStyleType: "none",
@@ -110,6 +113,21 @@ const styles = {
         display: "flex",
         flexDirection: "row",
         alignContent: "space-between"
+    },
+    certificationTitle: {
+        padding: "5%",
+        color: "white",
+        borderRadius: "20px",
+        backgroundColor: "grey",
+    },
+    certificationItems: {
+        "& div": {
+            backgroundColor: "grey",
+            padding: "10px 0",
+            borderRadius: "10px",
+            margin: "10px 0",
+            color: "white",
+        }
     }
 }
 
@@ -122,34 +140,37 @@ function About(props) {
                 <div className={classes.header}>
                     <div className={classes.picture}></div>
                     <div className={classes.headerText}>
-                        <h1>Hello, my name is Gui /> </h1>
-                        <p>I help companies achieve their goals by writing maintainable code and beautiful design. </p>
+                        <CodeIcon />
+                        <h1>Hello, my name is Gui. </h1>
+                        <p>I help companies achieve their goals by writing clean and maintainable code beautifully designed. </p>
                     </div>
                 </div>
                 <div className={classes.certification}>
-                    <ul>
+                    <div className={classes.certificationTitle}>
                         <SchoolIcon />
-                        <h2>Certifications /> </h2>
-                        <li>
+                        <h2>Certifications</h2>
+                    </div>
+                    <div className={classes.certificationItems}>
+                        <div>
                             <h4>CS50's Introduction to Computer Science</h4>
                             <p>Harvard University</p>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <h4>CS50's Web Programming with Python and Javascript</h4>
                             <p>Harvard University</p>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <h4>Web Developer Bootcamp</h4>
                             <p>Udemy</p>
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             <h4>React Development Bootcamp</h4>
                             <p>Udemy</p>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
-                <div className={classes.language}>
-                    <div className={classes.languageTitle}>
+                <div className={classes.ceertification}>
+                    <div className={classes.certificationTitle}>
                         <LanguageIcon />
                         <h2>I speak</h2>
                     </div>
@@ -162,6 +183,7 @@ function About(props) {
                 <a href='https://www.dropbox.com/s/wjnubif8w4xxsta/GuiGomes_CV_2021.pdf?dl=0' target="_blank"><Button variant="outlined">Download my CV</Button></a>
                 <Link to='/contact'><Button variant="outlined">Contact</Button></Link>
             </div>
+            <ScrollArrow />
             <Footer />
         </div >
     )

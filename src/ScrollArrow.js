@@ -11,7 +11,7 @@ const styles = {
         position: "fixed",
         right: 0,
         bottom: 0,
-        zIndex: 100,
+        zIndex: 10000,
         justifySelf: "right"
     }
 }

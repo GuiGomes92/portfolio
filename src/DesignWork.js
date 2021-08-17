@@ -4,6 +4,7 @@ import NavBar from './NavBar'
 import Footer from './Footer'
 import { design, development } from './utils/work'
 import { useParams, Link } from "react-router-dom";
+import ScrollArrow from './ScrollArrow'
 
 const url = process.env.PUBLIC_URL
 
@@ -88,6 +89,7 @@ function DesignWork(props) {
             <div className={classes.root}>
                 {getArea(useParams().area, classes, isHovering, setHover)}
             </div>
+            <ScrollArrow />
             <Footer />
         </div>
     )
