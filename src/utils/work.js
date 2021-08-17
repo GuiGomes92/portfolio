@@ -17,15 +17,27 @@ export const design = [
         cover: "cover.png",
         imgs: ['1.png', '2.png', '4.png', '5.png'],
         text: 'Brazil is the 5th country with most deaths in traffic. Each year, nearly 50 thousand people are killed and at least 400 gets harm. In 2018, the challenge is changing behaviour and create awareness about respect in traff ic. Targeting not only drivers, but bikers, motorcicles and pedestrian of all ages. From this perspective we reached the following insight: We all have crucial part in traff ic and lifes are crossed everyday in Brazil. However, because recklessness, some don’t return home.'
-    }
+    },
+    {
+        name: "N4",
+        cover: "",
+        imgs: [],
+        text: 'N4 is a professional consulting company. The logo should inspire the way these professionals conduct their clients in job interviews and how they help people to get a job.'
+    },
+    {
+        name: "Manifeste",
+        cover: "",
+        imgs: [],
+        text: 'A street wear brand that was created for young minded people. Created for a free, fearless public. The logo should incorporate all these qualities.'
+    },
 ]
 
 export const development = [
     {
         name: "Yoga Gravity Timer",
-        cover: "cover.jpg",
+        cover: "gravityCover.jpg",
         imgs: [],
-        text: ''
+        text: 'Students of Gravity Yoga always get confused with the time their supposed to hold poses. With that in mind, I built this timer. A website where students might set the number of poses they would like to do. The amount of time they are supposed to hold and amount of time for resting between them. During runtime, the timer will tell students when to change and when to rest through playing sounds.'
     },
     {
         name: "React Todo List",
@@ -35,27 +47,27 @@ export const development = [
     },
     {
         name: "Dad Jokes",
-        cover: "",
+        cover: "cover.jpg",
         imgs: [],
-        text: ''
+        text: 'Fun little app that gets random jokes from an API and displays them in a list where the user can rate them. The ones better evaluated gets a higher spot on the list. Emojis also change based on the rank.'
     },
     {
         name: "YelpCamp",
         cover: "",
         imgs: [],
-        text: ''
+        text: 'In the mood for camping but do not know where to go? In YelpCamp users can look for camping sites and check location and reviews in order to make a decision. Have a camp and want to list it in YelpCamp? Also possible.'
     },
     {
         name: "React Colors",
-        cover: "",
+        cover: "cover.jpg",
         imgs: [],
-        text: ''
+        text: 'Project build as a final one during a React Bootcamp. Among many of the features, user can delete or create palettes, organize them via drag and drop, add a name and emoji. It is also possible to see shades of specific colors and copy them to the clipboard. Colors are available in HEX, RGB and RGBA.'
     },
     {
         name: "Mealprep",
         cover: "",
         imgs: [],
-        text: ''
+        text: 'This is an app to schedule meals for the week. Users are able to look for a recipe and add them to a specific day and time of day. When added, ingrediends from a recipe will be added automatically to a shopping list inside the app where the user is able to check when ingredient is purchased. Recipes come from the Tasty API.'
     }
 ]
 
