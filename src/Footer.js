@@ -16,14 +16,14 @@ const styles = {
         display: "flex",
         marginTop: "auto",
         justifyContent: "center",
-        backgroundColor: "#1e4384"
+        backgroundColor: "#424242"
     },
     toolbar: {
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         padding: "0 10%",
         height: "100%",
-        justifyContent: "space-evenly",
+        justifyContent: "space-between",
         "& a": {
             color: "white"
         }
@@ -39,11 +39,11 @@ function Footer(props) {
     return (
         <AppBar position="absolute" className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
+                <Typography variant="body1">Copyright ©2021 All rights reserved | Coded and Designed by Guilherme Gomes</Typography>
                 <div>
                     <a href="https://github.com/GuiGomes92" target="_blank"><GitHubIcon className={classes.github} /></a>
                     <a href="https://www.linkedin.com/in/gomesgui/" target="_blank"><LinkedInIcon /></a>
                 </div>
-                <Typography variant="body1">Copyright ©2021 All rights reserved | Coded and Designed by Guilherme Gomes</Typography>
             </Toolbar>
         </AppBar>
     )

@@ -2,11 +2,10 @@ import React from 'react'
 import { withStyles } from '@material-ui/styles'
 import CodeIcon from '@material-ui/icons/Code';
 import BrushIcon from '@material-ui/icons/Brush';
-import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
 
 const url = process.env.PUBLIC_URL
-const design = ['AI.svg', 'ID.svg', 'PS.svg', 'Figma.svg']
+const design = ['AI.svg', 'ID.svg', 'PS.svg', 'xd.svg', 'ae.svg', 'Figma.svg']
 const development = ['html.svg', 'css.svg', 'js.svg', 'react.svg', 'python.svg', 'node.svg', "django.svg"]
 
 const styles = {
@@ -41,7 +40,8 @@ const styles = {
             display: "flex",
             alignSelf: "center",
             marginBottom: "auto",
-            marginTop: "auto"
+            marginTop: "auto",
+            color: "white"
         }
     },
     span: {
@@ -57,7 +57,6 @@ const styles = {
         rowGap: "35px",
         justifyItems: "center",
         alignItems: "center",
-        display: "flex",
         marginTop: "10%",
         justifyContent: "space-around",
         flexWrap: "wrap",
@@ -93,7 +92,6 @@ function Areas(props) {
                         <img src={`${url}/Design/${logo}`} />
                     ))}
                 </div>
-                <Link to='/work/design'><Button variant="contained">Check my design work</Button></Link>
             </div>
             <div className={classes.area}>
                 <CodeIcon /> <h4>Development /></h4>
@@ -103,7 +101,6 @@ function Areas(props) {
                         <img src={`${url}/Development/${logo}`} />
                     ))}
                 </div>
-                <Link to='/work/development'><Button variant="contained">Check my development work</Button></Link>
             </div>
         </div >
     )

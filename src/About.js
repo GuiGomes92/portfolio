@@ -44,23 +44,6 @@ const styles = {
             paddingBottom: "5%"
         }
     },
-    text: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        "& h1": {
-            justifyText: "left",
-            width: "50%",
-            height: "150px",
-            display: "flex",
-            alignItems: "center"
-        },
-        "& p": {
-            width: "50%",
-            letterSpacing: "0.1rem",
-            lineHeight: "1.5"
-        }
-    },
     picture: {
         width: "50%",
         backgroundImage: `url(${process.env.PUBLIC_URL + '/imgs/I7.jpg'})`,
@@ -68,66 +51,50 @@ const styles = {
         backgroundPosition: "center",
 
     },
-    presentation: {
-        width: "80%"
-    },
-    certification: {
+    certificationContainer: {
         display: "flex",
+        width: "100vw",
+        alignItems: "center",
+        margin: "5%",
         flexDirection: "column",
-        width: "50%",
-        textAlign: "center",
-        "& ul": {
-            listStyleType: "none",
-            "& h2": {
-                textTransform: "uppercase"
-            },
-            "& h4": {
-                marginBottom: 0
-            },
-            "& li": {
-                backgroundColor: "#1e4384",
-                borderRadius: "10px",
-                color: "white",
-                textAlign: "left",
-                margin: "20px 0",
-                padding: "20px 20px",
-                fontSize: "1rem",
-                lineHeight: "1.6"
+        "& div": {
+            display: "flex",
+            alignItems: "center",
+            "& h3": {
+                marginRight: "10px"
             }
         }
-
     },
-    language: {
-        width: "100%",
-        height: "25vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        backgroundColor: "grey",
-        justifyContent: "center"
+    certificationBox: {
+        width: "80%",
+        borderBottom: "1px solid black",
+        "& ul": {
+            width: "60%",
+            "& li": {
+                "& h3": {
+                    marginBottom: 0,
+                    textTransform: "uppercase",
+                    textDecoration: "none"
+                },
+            }
+        }
     },
-    languageTitle: {
-        textAlign: "center"
-    },
-    languageItems: {
-        display: "flex",
-        flexDirection: "row",
-        alignContent: "space-between"
+    institution: {
+        justifySelf: "end"
     },
     certificationTitle: {
-        padding: "5%",
-        color: "white",
-        borderRadius: "20px",
-        backgroundColor: "grey",
-    },
-    certificationItems: {
-        "& div": {
-            backgroundColor: "grey",
-            padding: "10px 0",
-            borderRadius: "10px",
-            margin: "10px 0",
-            color: "white",
+        width: "40%",
+        "& svg": {
+            marginRight: "20px",
+            color: "#1e4384"
         }
+    },
+    courseTitle: {
+        width: "100%",
+        justifyContent: "space-between"
+    },
+    headerLink: {
+
     }
 }
 
@@ -143,46 +110,115 @@ function About(props) {
                         <CodeIcon />
                         <h1>Hello, my name is Gui. </h1>
                         <p>I help companies achieve their goals by writing clean and maintainable code beautifully designed. </p>
-                    </div>
-                </div>
-                <div className={classes.certification}>
-                    <div className={classes.certificationTitle}>
-                        <SchoolIcon />
-                        <h2>Certifications</h2>
-                    </div>
-                    <div className={classes.certificationItems}>
-                        <div>
-                            <h4>CS50's Introduction to Computer Science</h4>
-                            <p>Harvard University</p>
-                        </div>
-                        <div>
-                            <h4>CS50's Web Programming with Python and Javascript</h4>
-                            <p>Harvard University</p>
-                        </div>
-                        <div>
-                            <h4>Web Developer Bootcamp</h4>
-                            <p>Udemy</p>
-                        </div>
-                        <div>
-                            <h4>React Development Bootcamp</h4>
-                            <p>Udemy</p>
+                        <div className={classes.headerLink}>
+                            <a href='https://www.dropbox.com/s/wjnubif8w4xxsta/GuiGomes_CV_2021.pdf?dl=0' target="_blank"><Button variant="contained">Download CV</Button></a>
+                            <Link to='/contact'><Button variant="contained">Contact</Button></Link>
                         </div>
                     </div>
                 </div>
-                <div className={classes.ceertification}>
-                    <div className={classes.certificationTitle}>
-                        <LanguageIcon />
-                        <h2>I speak</h2>
+                <div className={classes.certificationContainer}>
+                    <div className={classes.certificationBox}>
+                        <div className={classes.certificationTitle}>
+                            <SchoolIcon />
+                            <h2>Certifications</h2>
+                        </div>
+                        <ul>
+                            <li>
+                                <div className={classes.courseTitle}>
+                                    <h3>React Bootcamp</h3>
+                                    <p className={classes.institution}>Udemy</p>
+                                </div>
+                                <p>HOOKS | STATE MANAGEMENT | REACT ROUTER | JSS | CONTEXT API | MATERIAL UI | MORE</p>
+                            </li>
+                            <li>
+                                <div className={classes.courseTitle}>
+                                    <h3>Web Developer Bootcamp</h3>
+                                    <p>Udemy</p>
+                                </div>
+                                <p>HTML5 | CSS3 | JAVASCRIPT | ASYNC JS | AJAX | BOOTSTRAP | NODE.JS | NPM | EXPRESS.JS | SQL | MONGO | MORE</p>
+                            </li>
+                            <li>
+                                <div className={classes.courseTitle}>
+                                    <h3>CS50's Web Programming</h3>
+                                    <p>Harvard University</p>
+                                </div>
+                                <p> HTML | CSS | PYTHON | DJANGO | SQL, MODELS AND MIGRATIONS | JAVASCRIPT | USER INTERFACES | TESTING | SCALABILITY</p>
+                            </li>
+                            <li>
+                                <div className={classes.courseTitle}>
+                                    <h3>CS50</h3>
+                                    <p>Harvard University</p>
+                                </div>
+                                <p>C | ARRAYS | ALGORITHMS | MEMORY | DATA STRUCTURES | PYTHON | SQL | FLASK | HTML | CSS | JAVASCRIPT</p>
+                            </li>
+                        </ul>
                     </div>
-                    <div className={classes.languageItems}>
-                        <p>Portuguese</p>
-                        <p>English</p>
-                        <p>Spanish</p>
+                    <div className={classes.certificationBox}>
+                        <div className={classes.certificationTitle}>
+                            <SchoolIcon />
+                            <h2>Work Experience</h2>
+                        </div>
+                        <ul>
+                            <li>
+                                <div className={classes.courseTitle}>
+                                    <h3>Creative Director</h3>
+                                    <p>2019 - Present</p>
+                                </div>
+                                <p><i>YOGABODY Internationals</i></p>
+                                <p>Responsible for all the visuals and graphics for the company. Printing, social media, web pages, and the e-Learning platforms.</p>
+                            </li>
+                            <li>
+                                <div className={classes.courseTitle}>
+                                    <h3>Graphic Designer</h3>
+                                    <p>2018 - 2019</p>
+                                </div>
+                                <p><i>BR+ Comunicação</i></p>
+                                <p>Campaign Development in social media and other platforms for the following ministries in Brazil: Cities, National Integration, Science, Technology, Innovation, and Communications.</p>
+                            </li>
+                            <li>
+                                <div className={classes.courseTitle}>
+                                    <h3>Graphic Designer</h3>
+                                    <p>2014 - 2018</p>
+                                </div>
+                                <p><i>Agência Terruá</i></p>
+                                <p>Development of experiences and brand activation for important clients like APEX, Ministry of Tourism of Brazil, EMBRATUR, among others.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={classes.certificationBox}>
+                        <div className={classes.certificationTitle}>
+                            <SchoolIcon />
+                            <h2>University</h2>
+                        </div>
+                        <ul>
+                            <li>
+                                <h3>MBA in Digital Marketing</h3>
+                                <p>IESB</p>
+                            </li>
+                            <li>
+                                <h3>Bachelor in Advertising</h3>
+                                <p>UniCEUB</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={classes.certificationBox}>
+                        <div className={classes.certificationTitle}>
+                            <SchoolIcon />
+                            <h2>Skills</h2>
+                        </div>
+                        <ul>
+                            <li>
+                                <h3>Languages</h3>
+                                <p>English | Spanish | Portuguese</p>
+                            </li>
+                            <li>
+                                <h3>Technical</h3>
+                                <p>JAVASCRIPT(ES6) | REACT.js | PYTHON | NODE.js | HTML5 | CSS3 | NPM | EXPRESS.js | DJANGO | SQL | GIT | ADOBE CREATIVE CLOUD | FIGMA</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <a href='https://www.dropbox.com/s/wjnubif8w4xxsta/GuiGomes_CV_2021.pdf?dl=0' target="_blank"><Button variant="outlined">Download my CV</Button></a>
-                <Link to='/contact'><Button variant="outlined">Contact</Button></Link>
-            </div>
+            </div >
             <ScrollArrow />
             <Footer />
         </div >
