@@ -17,18 +17,19 @@ const styles = {
     videoContainer: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         paddingLeft: "80px",
-        alignItems: "center",
+        justifyContent: "center",
         height: "92vh",
-        backgroundImage: `url(${process.env.PUBLIC_URL + '/imgs/code.jpg'})`,
-        backgroundSize: "cover",
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/imgs/illustration.svg'})`,
+        backgroundSize: "60%",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center right",
         "& h2": {
-            textAlign: "center",
-            fontSize: "60px",
+            fontSize: "3.5vw",
+            lineHeight: "1.5em",
             fontWeight: "100",
             margin: "0 0 20px 0",
-            color: "white"
+            color: "#1E4384"
         },
         "& p": {
             fontSize: "30px",
@@ -37,11 +38,16 @@ const styles = {
         },
         "& a": {
             textDecoration: "none"
-        }
+        },
+    },
+    firstTitle: {
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        color: "#fcc60e"
     },
     trustedBy: {
         padding: "5% 0"
-    }
+    },
 }
 
 function LandingPage(props) {
@@ -50,7 +56,7 @@ function LandingPage(props) {
         <div className={classes.root}>
             <NavBar />
             <div className={classes.videoContainer}>
-                <h2>I turn ideas into reality <br />through code and design</h2>
+                <h2><span className={classes.firstTitle}>Hello! My name is Gui. </span><br /> I make people happier <br />through code and design.</h2>
                 <Link to='/contact'>
                     <Button variant="contained" color="primary">
                         Contact Now

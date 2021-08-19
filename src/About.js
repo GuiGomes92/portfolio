@@ -2,12 +2,13 @@ import React from "react";
 import { withStyles } from '@material-ui/styles'
 import Button from '@material-ui/core/Button';
 import NavBar from './NavBar'
-import LanguageIcon from '@material-ui/icons/Language';
 import SchoolIcon from '@material-ui/icons/School';
 import Footer from './Footer'
 import CodeIcon from '@material-ui/icons/Code';
 import { Link } from 'react-router-dom'
 import ScrollArrow from "./ScrollArrow";
+import WorkIcon from '@material-ui/icons/Work';
+import BuildIcon from '@material-ui/icons/Build';
 
 const styles = {
     main: {
@@ -18,7 +19,8 @@ const styles = {
         alignItems: "center",
         textAlign: "justify",
         "& a": {
-            margin: "3em 0"
+            textDecoration: "none",
+            margin: "0 0 3em 0"
         },
     },
     header: {
@@ -66,24 +68,24 @@ const styles = {
         }
     },
     certificationBox: {
-        width: "80%",
-        borderBottom: "1px solid black",
+        width: "60%",
+        borderBottom: "2px solid #1e4384",
         "& ul": {
+            listStyleType: "none",
             width: "60%",
             "& li": {
                 "& h3": {
+                    color: "#1e4384",
                     marginBottom: 0,
                     textTransform: "uppercase",
                     textDecoration: "none"
-                },
+                }
             }
         }
     },
-    institution: {
-        justifySelf: "end"
-    },
     certificationTitle: {
         width: "40%",
+        color: "#1e4384",
         "& svg": {
             marginRight: "20px",
             color: "#1e4384"
@@ -91,10 +93,16 @@ const styles = {
     },
     courseTitle: {
         width: "100%",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        "& p": {
+            fontWeight: "bold",
+            marginBottom: 0,
+            color: "#E69A02"
+        }
     },
-    headerLink: {
-
+    textHeight: {
+        color: "#132A52",
+        lineHeight: "2em"
     }
 }
 
@@ -109,11 +117,8 @@ function About(props) {
                     <div className={classes.headerText}>
                         <CodeIcon />
                         <h1>Hello, my name is Gui. </h1>
-                        <p>I help companies achieve their goals by writing clean and maintainable code beautifully designed. </p>
-                        <div className={classes.headerLink}>
-                            <a href='https://www.dropbox.com/s/wjnubif8w4xxsta/GuiGomes_CV_2021.pdf?dl=0' target="_blank"><Button variant="contained">Download CV</Button></a>
-                            <Link to='/contact'><Button variant="contained">Contact</Button></Link>
-                        </div>
+                        <p>I am a Frontend Developer and Designer</p>
+                        <Link to='/contact'><Button style={{ backgroundColor: "#fcc60e" }} variant="contained">Let's Talk?</Button></Link>
                     </div>
                 </div>
                 <div className={classes.certificationContainer}>
@@ -126,36 +131,36 @@ function About(props) {
                             <li>
                                 <div className={classes.courseTitle}>
                                     <h3>React Bootcamp</h3>
-                                    <p className={classes.institution}>Udemy</p>
+                                    <p>Udemy</p>
                                 </div>
-                                <p>HOOKS | STATE MANAGEMENT | REACT ROUTER | JSS | CONTEXT API | MATERIAL UI | MORE</p>
+                                <p className={classes.textHeight}>HOOKS | STATE MANAGEMENT | REACT ROUTER | JSS | CONTEXT API | MATERIAL UI | MORE</p>
                             </li>
                             <li>
                                 <div className={classes.courseTitle}>
                                     <h3>Web Developer Bootcamp</h3>
                                     <p>Udemy</p>
                                 </div>
-                                <p>HTML5 | CSS3 | JAVASCRIPT | ASYNC JS | AJAX | BOOTSTRAP | NODE.JS | NPM | EXPRESS.JS | SQL | MONGO | MORE</p>
+                                <p className={classes.textHeight}>HTML5 | CSS3 | JAVASCRIPT | ASYNC JS | AJAX | BOOTSTRAP | NODE.JS | NPM | EXPRESS.JS | SQL | MONGO | MORE</p>
                             </li>
                             <li>
                                 <div className={classes.courseTitle}>
                                     <h3>CS50's Web Programming</h3>
                                     <p>Harvard University</p>
                                 </div>
-                                <p> HTML | CSS | PYTHON | DJANGO | SQL, MODELS AND MIGRATIONS | JAVASCRIPT | USER INTERFACES | TESTING | SCALABILITY</p>
+                                <p className={classes.textHeight}> HTML | CSS | PYTHON | DJANGO | SQL, MODELS AND MIGRATIONS | JAVASCRIPT | USER INTERFACES | TESTING | SCALABILITY</p>
                             </li>
                             <li>
                                 <div className={classes.courseTitle}>
                                     <h3>CS50</h3>
                                     <p>Harvard University</p>
                                 </div>
-                                <p>C | ARRAYS | ALGORITHMS | MEMORY | DATA STRUCTURES | PYTHON | SQL | FLASK | HTML | CSS | JAVASCRIPT</p>
+                                <p className={classes.textHeight}>C | ARRAYS | ALGORITHMS | MEMORY | DATA STRUCTURES | PYTHON | SQL | FLASK | HTML | CSS | JAVASCRIPT</p>
                             </li>
                         </ul>
                     </div>
                     <div className={classes.certificationBox}>
                         <div className={classes.certificationTitle}>
-                            <SchoolIcon />
+                            <WorkIcon />
                             <h2>Work Experience</h2>
                         </div>
                         <ul>
@@ -165,7 +170,7 @@ function About(props) {
                                     <p>2019 - Present</p>
                                 </div>
                                 <p><i>YOGABODY Internationals</i></p>
-                                <p>Responsible for all the visuals and graphics for the company. Printing, social media, web pages, and the e-Learning platforms.</p>
+                                <p className={classes.textHeight}>Responsible for all the visuals and graphics for the company. Printing, social media, web pages, and the e-Learning platforms.</p>
                             </li>
                             <li>
                                 <div className={classes.courseTitle}>
@@ -173,7 +178,7 @@ function About(props) {
                                     <p>2018 - 2019</p>
                                 </div>
                                 <p><i>BR+ Comunicação</i></p>
-                                <p>Campaign Development in social media and other platforms for the following ministries in Brazil: Cities, National Integration, Science, Technology, Innovation, and Communications.</p>
+                                <p className={classes.textHeight}>Campaign Development in social media and other platforms for the following ministries in Brazil: Cities, National Integration, Science, Technology, Innovation, and Communications.</p>
                             </li>
                             <li>
                                 <div className={classes.courseTitle}>
@@ -181,7 +186,7 @@ function About(props) {
                                     <p>2014 - 2018</p>
                                 </div>
                                 <p><i>Agência Terruá</i></p>
-                                <p>Development of experiences and brand activation for important clients like APEX, Ministry of Tourism of Brazil, EMBRATUR, among others.</p>
+                                <p className={classes.textHeight}>Development of experiences and brand activation for important clients like APEX, Ministry of Tourism of Brazil, EMBRATUR, among others.</p>
                             </li>
                         </ul>
                     </div>
@@ -192,32 +197,39 @@ function About(props) {
                         </div>
                         <ul>
                             <li>
-                                <h3>MBA in Digital Marketing</h3>
-                                <p>IESB</p>
+                                <div className={classes.courseTitle}>
+                                    <h3>MBA in Digital Marketing</h3>
+                                    <p>2017 - 2018</p>
+                                </div>
+                                <p><i>IESB</i></p>
                             </li>
                             <li>
-                                <h3>Bachelor in Advertising</h3>
-                                <p>UniCEUB</p>
+                                <div className={classes.courseTitle}>
+                                    <h3>Bachelor in Advertising</h3>
+                                    <p>2013 - 2016</p>
+                                </div>
+                                <p><i>UniCEUB</i></p>
                             </li>
                         </ul>
                     </div>
                     <div className={classes.certificationBox}>
                         <div className={classes.certificationTitle}>
-                            <SchoolIcon />
+                            <BuildIcon />
                             <h2>Skills</h2>
                         </div>
                         <ul>
                             <li>
                                 <h3>Languages</h3>
-                                <p>English | Spanish | Portuguese</p>
+                                <p className={classes.textHeight}>English | Spanish | Portuguese</p>
                             </li>
                             <li>
                                 <h3>Technical</h3>
-                                <p>JAVASCRIPT(ES6) | REACT.js | PYTHON | NODE.js | HTML5 | CSS3 | NPM | EXPRESS.js | DJANGO | SQL | GIT | ADOBE CREATIVE CLOUD | FIGMA</p>
+                                <p className={classes.textHeight}>JAVASCRIPT(ES6) | REACT.js | PYTHON | NODE.js | HTML5 | CSS3 | NPM | EXPRESS.js | DJANGO | SQL | GIT | ADOBE CREATIVE CLOUD | FIGMA</p>
                             </li>
                         </ul>
                     </div>
                 </div>
+                <a href='https://www.dropbox.com/s/wjnubif8w4xxsta/GuiGomes_CV_2021.pdf?dl=0' target="_blank"><Button variant="contained">Check out my CV</Button></a>
             </div >
             <ScrollArrow />
             <Footer />

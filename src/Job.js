@@ -43,7 +43,10 @@ const styles = {
             lineHeight: "2em",
             textAlign: "justify",
             paddingBottom: "20px",
-        }
+        },
+        "& a": {
+            color: "#1e4384",
+        },
     },
     type: {
         textTransform: "uppercase",

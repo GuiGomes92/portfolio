@@ -10,18 +10,17 @@ const development = ['html.svg', 'css.svg', 'js.svg', 'react.svg', 'python.svg',
 
 const styles = {
     root: {
-        height: "100vh",
+        height: "80vh",
         display: "flex",
         justifyContent: "space-evenly",
-        alignItems: "center",
-        backgroundColor: "#e5e5e5"
+        alignItems: "center"
     },
     area: {
         width: "30%",
         display: "flex",
         padding: "5%",
         flexDirection: "column",
-        height: "60%",
+        height: "80%",
         backgroundColor: "#1e4384",
         borderRadius: "10px",
         color: "white",

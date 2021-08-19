@@ -43,7 +43,7 @@ export const design = [
         type: "Brand Design",
         name: "Quinze Viajantes",
         cover: "cover.jpg",
-        imgs: ['1.jpg'],
+        imgs: ['1.jpg', '2.jpg'],
         text: '“Os quinze viajantes” is a travel especialized blog runned by fifteen friends that met when traveling abroad and decided to share experiences. The logo should be young, free and versatile.',
         tools: ["Adobe Creative Package"]
     },
@@ -54,9 +54,10 @@ export const development = [
         type: "Frontend Development",
         name: "React Colors",
         cover: "cover.jpg",
-        imgs: [],
+        imgs: ['1.jpg'],
         text: 'Project build as a final one during a React Bootcamp. Among many of the features, user can delete or create palettes, organize them via drag and drop, add a name and emoji. It is also possible to see shades of specific colors and copy them to the clipboard. Colors are available in HEX, RGB and RGBA.',
-        tools: ["React.js"]
+        tools: ["React.js"],
+        sourceCode: 'https://github.com/GuiGomes92/react-colors'
     },
     {
         type: "Frontend Development",
@@ -71,8 +72,8 @@ export const development = [
         type: "Frontend Development",
         name: "React Todo List",
         cover: "cover.jpg",
-        imgs: [],
-        text: '',
+        imgs: ['1.jpg', '2.jpg'],
+        text: 'App built in react for the completion of tasks. Among the concepts learned while working on this project, you will find state management, class based components and the keyword "this" as well as npm packages like uuid to create unique keys for repeated components.',
         tools: ["React.js"],
         sourceCode: 'https://github.com/GuiGomes92/React-Todo-List'
     },
@@ -82,7 +83,8 @@ export const development = [
         cover: "cover.jpg",
         imgs: [],
         text: 'Fun little app that gets random jokes from an API and displays them in a list where the user can rate them. The ones better evaluated gets a higher spot on the list. Emojis also change based on the rank.',
-        tools: ["React.js"]
+        tools: ["React.js"],
+        sourceCode: 'https://github.com/GuiGomes92/Dad-jokes'
     },
     {
         type: "FullStack Development",
@@ -91,6 +93,7 @@ export const development = [
         imgs: [],
         text: 'In the mood for camping but do not know where to go? In YelpCamp users can look for camping sites and check location and reviews in order to make a decision. Have a camp and want to list it in YelpCamp? Also possible.',
         tools: ["JavaScript", "Node.js", "EJS", "CSS"],
+        sourceCode: 'https://github.com/GuiGomes92/YelpCamp'
     },
     {
         type: "FullStack Development",
