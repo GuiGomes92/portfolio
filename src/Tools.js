@@ -1,7 +1,8 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles'
-import logos from './utils/logoClients'
+import logos from './utils/logoClients';
+import sizes from "./styles/sizes";
 
 const url = process.env.PUBLIC_URL
 const clientLogos = ['AG.svg', 'Brazil.svg', 'GRU.svg', 'HCB.svg', 'Maranhao.svg', 'Roche.svg', 'Souza Cruz.svg', 'Terruá.svg', 'YB.svg']
@@ -21,7 +22,15 @@ const styles = {
         flexWrap: "wrap",
         "& img": {
             margin: "0 20px",
-            width: "200px"
+            width: "200px",
+            [sizes.down("sm")]: {
+                width: "150px",
+                margin: "20px",
+            }
+        },
+        [sizes.down("sm")]: {
+            height: "unset",
+            padding: "0",
         }
     }
 }

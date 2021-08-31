@@ -4,7 +4,8 @@ import NavBar from './NavBar'
 import Footer from './Footer'
 import { design, development } from './utils/work'
 import { useParams, Link } from "react-router-dom";
-import ScrollArrow from './ScrollArrow'
+import ScrollArrow from './ScrollArrow';
+import sizes from "./styles/sizes"
 
 const url = process.env.PUBLIC_URL
 
@@ -13,14 +14,20 @@ const styles = {
         display: "grid",
         gridTemplateColumns: "50% 50%",
         gridTemplateRows: `${getRows()}`,
+        [sizes.down("sm")]: {
+            display: "flex",
+            flexDirection: "column"
+        },
         "& a": {
             textDecoration: 'none'
         }
     },
     square: {
-        backgroundColor: "grey",
         backgroundSize: "cover",
-        backgroundPosition: "center"
+        backgroundPosition: "center",
+        [sizes.down("sm")]: {
+            height: "50vh"
+        },
     },
     overlay: {
         display: "flex",
@@ -46,19 +53,19 @@ const styles = {
 function getRows(area) {
     let string = ''
     if (area === 'design') {
-        for (let i = 0; i <= design.length / 2; i++) {
+        for (let i = 0; i <= design.length / 2 - 1; i++) {
             string = string + " 45vh"
         }
         return string
     } else {
-        for (let i = 0; i < development.length / 2; i++) {
+        for (let i = 0; i <= development.length / 2 - 1; i++) {
             string = string + " 45vh"
         }
-        return string
     }
+    return string
 }
 
-function getArea(area, classes, isHovering, setHover) {
+function getArea(area, classes) {
     if (area === 'design') {
 
         return design.map(item => (
@@ -79,7 +86,6 @@ function getArea(area, classes, isHovering, setHover) {
 }
 
 function DesignWork(props) {
-    const [isHovering, setHover] = useState(false)
     getRows(useParams().area);
     const { classes } = props
 
@@ -87,9 +93,9 @@ function DesignWork(props) {
         <div>
             <NavBar />
             <div className={classes.root}>
-                {getArea(useParams().area, classes, isHovering, setHover)}
+                {getArea(useParams().area, classes)}
             </div>
-            <ScrollArrow />
+            <ScrollArrow position={props.position} />
             <Footer />
         </div>
     )

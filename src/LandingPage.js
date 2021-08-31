@@ -8,6 +8,7 @@ import Areas from './Areas'
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
 import ScrollArrow from './ScrollArrow'
+import sizes from "./styles/sizes";
 
 const styles = {
     root: {
@@ -24,12 +25,26 @@ const styles = {
         backgroundSize: "60%",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center right",
+        [sizes.down("sm")]: {
+            height: "50vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            backgroundPosition: "center bottom",
+            backgroundSize: "100%",
+            justifyContent: "end",
+            padding: 0
+        },
         "& h2": {
             fontSize: "3.5vw",
             lineHeight: "1.5em",
             fontWeight: "100",
             margin: "0 0 20px 0",
-            color: "#1E4384"
+            color: "#1E4384",
+            [sizes.down("sm")]: {
+                textAlign: "center",
+                fontSize: "5.5vw"
+            },
         },
         "& p": {
             fontSize: "30px",
@@ -68,7 +83,7 @@ function LandingPage(props) {
                 <Tools />
                 <Testimonial />
             </div>
-            <ScrollArrow />
+            <ScrollArrow position={props.position} />
             <Footer />
         </div>
     )

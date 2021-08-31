@@ -2,7 +2,8 @@ import React from 'react'
 import { withStyles } from '@material-ui/styles'
 import CodeIcon from '@material-ui/icons/Code';
 import BrushIcon from '@material-ui/icons/Brush';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import sizes from "./styles/sizes";
 
 const url = process.env.PUBLIC_URL
 const design = ['AI.svg', 'ID.svg', 'PS.svg', 'xd.svg', 'ae.svg', 'Figma.svg']
@@ -13,7 +14,11 @@ const styles = {
         height: "80vh",
         display: "flex",
         justifyContent: "space-evenly",
-        alignItems: "center"
+        alignItems: "center",
+        [sizes.down("sm")]: {
+            flexDirection: "column",
+            height: "unset",
+        }
     },
     area: {
         width: "30%",
@@ -24,6 +29,10 @@ const styles = {
         backgroundColor: "#1e4384",
         borderRadius: "10px",
         color: "white",
+        [sizes.down("sm")]: {
+            width: "80%",
+            margin: "20px 0"
+        },
         "& h4": {
             textTransform: "uppercase"
         },
@@ -45,7 +54,10 @@ const styles = {
     },
     span: {
         fontSize: "80px",
-        color: "#fcc60e"
+        color: "#fcc60e",
+        [sizes.down("sm")]: {
+            fontSize: "3rem",
+        },
     },
     skills: {
         marginTop: "30px",

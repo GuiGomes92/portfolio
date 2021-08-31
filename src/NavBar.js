@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CloseIcon from '@material-ui/icons/Close';
+import sizes from "./styles/sizes"
 
 const styles = {
     navbar: {
@@ -15,6 +16,9 @@ const styles = {
         height: "10vh",
         backgroundColor: "transparent",
         color: "black",
+        [sizes.down("sm")]: {
+            padding: "0 40px"
+        },
         "& a": {
             color: "#1e4384",
             textTransform: "uppercase",
@@ -22,6 +26,9 @@ const styles = {
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
+            [sizes.down("sm")]: {
+                justifyContent: "center"
+            },
         },
         "& a:hover": {
             color: "#fcc60e"
@@ -33,10 +40,12 @@ const styles = {
         height: "100%",
         fontSize: "5rem",
         justifyContent: "space-evenly",
-
         "& svg": {
             fontSize: "inherit"
-        }
+        },
+        [sizes.down("sm")]: {
+            fontSize: "2rem",
+        },
     },
     linkActive: {
         borderBottom: "10px solid #fcc60e",
@@ -53,7 +62,10 @@ const styles = {
     closeIcon: {
         alignSelf: "flex-end",
         position: "absolute",
-        marginTop: "30px"
+        marginTop: "30px",
+        [sizes.down("sm")]: {
+            alignSelf: "center"
+        },
     }
 }
 

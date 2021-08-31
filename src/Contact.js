@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import useFormState from './hooks/useFormState'
 import { withStyles } from '@material-ui/styles'
 import { makeStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 import NavBar from './NavBar'
 import Footer from './Footer'
 import Button from '@material-ui/core/Button';
+import sizes from "./styles/sizes";
 
 const styles = makeStyles((theme) => ({
     root: {
@@ -22,7 +23,10 @@ const styles = makeStyles((theme) => ({
         width: "50%",
         height: "80%",
         margin: "5% auto",
-        flexDirection: "column"
+        flexDirection: "column",
+        [sizes.down("sm")]: {
+            width: "90%",
+        }
     },
     form: {
         width: "80%",
@@ -32,7 +36,10 @@ const styles = makeStyles((theme) => ({
         justifyContent: "space-evenly",
         "& h1": {
             textTransform: "uppercase",
-            color: "#1e4384"
+            color: "#1e4384",
+            [sizes.down("sm")]: {
+                fontSize: "1.5em",
+            }
         }
     },
     inputContainer: {
@@ -43,6 +50,17 @@ const styles = makeStyles((theme) => ({
 
 
 function Contact(props) {
+    const [name, setName, resetName] = useFormState("")
+    const [email, setEmail, resetEmail] = useFormState("")
+    const [message, setMessage, resetMessage] = useFormState("")
+
+    function handleSubmit(name, email, message) {
+        //Do Something with data
+        //Reset Data
+        resetName()
+        resetEmail()
+        resetMessage()
+    }
 
     const classes = styles();
 
@@ -61,6 +79,8 @@ function Contact(props) {
                         label="Name"
                         variant="outlined"
                         fullWidth
+                        value={name}
+                        onChange={setName}
                     />
                     <TextField
                         required
@@ -69,6 +89,8 @@ function Contact(props) {
                         label="Email"
                         variant="outlined"
                         fullWidth
+                        value={email}
+                        onChange={setEmail}
                     />
                     <TextField
                         id="outlined-multiline-static"
@@ -77,8 +99,10 @@ function Contact(props) {
                         rows={6}
                         variant="outlined"
                         fullWidth
+                        value={message}
+                        onChange={setMessage}
                     />
-                    <Button type="submit" variant="outlined">Send</Button>
+                    <Button onClick={() => handleSubmit(name, email, message)} variant="outlined">Send</Button>
                 </form>
             </div>
             <Footer />

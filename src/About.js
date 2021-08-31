@@ -9,10 +9,13 @@ import { Link } from 'react-router-dom'
 import ScrollArrow from "./ScrollArrow";
 import WorkIcon from '@material-ui/icons/Work';
 import BuildIcon from '@material-ui/icons/Build';
+import sizes from "./styles/sizes"
 
 const styles = {
+    root: {
+        width: "100%"
+    },
     main: {
-        width: "100%",
         height: "100%",
         display: "flex",
         flexDirection: "column",
@@ -25,8 +28,11 @@ const styles = {
     },
     header: {
         width: "100%",
-        height: "100vh",
+        height: "60vh",
         display: "flex",
+        [sizes.down("sm")]: {
+            flexDirection: "column"
+        }
     },
     headerText: {
         width: "50%",
@@ -44,6 +50,20 @@ const styles = {
         "& p": {
             fontSize: "1.5rem",
             paddingBottom: "5%"
+        },
+        [sizes.down("sm")]: {
+            alignItems: "center",
+            height: "50%",
+            width: "100%",
+            padding: "0 20px",
+            textAlign: "center",
+            "& h1": {
+                fontSize: "2rem"
+            },
+            "& p": {
+                fontSize: "1.0rem",
+                paddingBottom: "5%"
+            },
         }
     },
     picture: {
@@ -51,20 +71,30 @@ const styles = {
         backgroundImage: `url(${process.env.PUBLIC_URL + '/imgs/I7.jpg'})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        [sizes.down("sm")]: {
+            width: "100%",
+            height: "50%"
+        }
 
     },
     certificationContainer: {
         display: "flex",
-        width: "100vw",
         alignItems: "center",
         margin: "5%",
         flexDirection: "column",
+        [sizes.down("sm")]: {
+            margin: "0",
+        },
         "& div": {
             display: "flex",
             alignItems: "center",
-            "& h3": {
-                marginRight: "10px"
+            [sizes.down("sm")]: {
+                flexDirection: "column",
+                margin: "5% 0",
             }
+        },
+        "& h3": {
+            marginRight: "10px"
         }
     },
     certificationBox: {
@@ -73,6 +103,12 @@ const styles = {
         "& ul": {
             listStyleType: "none",
             width: "60%",
+            [sizes.down("sm")]: {
+                width: "100%",
+                padding: 0,
+                textAlign: "center",
+                marginTop: 0
+            },
             "& li": {
                 "& h3": {
                     color: "#1e4384",
@@ -81,6 +117,9 @@ const styles = {
                     textDecoration: "none"
                 }
             }
+        },
+        [sizes.down("sm")]: {
+            width: "80%",
         }
     },
     certificationTitle: {
@@ -89,6 +128,9 @@ const styles = {
         "& svg": {
             marginRight: "20px",
             color: "#1e4384"
+        },
+        [sizes.down("sm")]: {
+            width: "100%",
         }
     },
     courseTitle: {
@@ -231,7 +273,7 @@ function About(props) {
                 </div>
                 <a href='https://www.dropbox.com/s/wjnubif8w4xxsta/GuiGomes_CV_2021.pdf?dl=0' target="_blank"><Button variant="contained">Check out my CV</Button></a>
             </div >
-            <ScrollArrow />
+            <ScrollArrow position={props.position} />
             <Footer />
         </div >
     )

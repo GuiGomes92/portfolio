@@ -5,7 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import sizes from "./styles/sizes";
 
 const url = process.env.PUBLIC_URL
 
@@ -26,7 +27,14 @@ const styles = {
         justifyContent: "space-between",
         "& a": {
             color: "white"
-        }
+        },
+        [sizes.down("sm")]: {
+            flexDirection: "column",
+            height: "80%",
+            "& p": {
+                textAlign: "center"
+            }
+        },
     },
     github: {
         marginRight: "15px"
