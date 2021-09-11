@@ -101,7 +101,8 @@ export const development = [
         cover: "cover.jpg",
         imgs: [],
         text: 'This is an app to schedule meals for the week. Users are able to look for a recipe and add them to a specific day and time of day. When added, ingrediends from a recipe will be added automatically to a shopping list inside the app where the user is able to check when ingredient is purchased. Recipes come from the Tasty API.',
-        tools: ["Python", "Django"]
+        tools: ["Python", "Django"],
+        sourceCode: 'https://github.com/GuiGomes92/plateprep'
     }
 ]
 

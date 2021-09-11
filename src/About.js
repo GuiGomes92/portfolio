@@ -23,7 +23,7 @@ const styles = {
         textAlign: "justify",
         "& a": {
             textDecoration: "none",
-            margin: "0 0 3em 0"
+            margin: "0 0 5% 0"
         },
     },
     header: {
